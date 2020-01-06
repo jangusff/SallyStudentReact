@@ -9,33 +9,84 @@
   </head>
   
   <header>
-    Sally Marie Student
   </header>
 
   <body>
-    <main>
-      <h1>Introduction</h1>
-      <p>Seeking employment with a large software company.  I have an extensive background that I believe will be of great benefit to any employer.</p>
- 
-      <section>
-        <h1>Employment History</h1>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js">
+    </script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+    </script>
+    <script
+      src="https://unpkg.com/babel-standalone@6/babel.min.js">
+    </script>
+
+    <script type="text/babel">
+
+      // App Component
+      function App(props) {
+        console.log(props);
+        return (
+          <header className={props.className}>
+            {props.children}
+          </header>
+        );
+      }
+
+      function App1(props) {
+        console.log(props);
+        return (
+          <div>
+            {props.children}
+          </div>
+        );
+      }
+
+
+      // Nested elements inside the App
+      ReactDOM.render(
+        <App className='resume-header'>
+          <div>
+          <h1>Sally Marie Student</h1>
+          </div>
+        </App>,
+        document.querySelector('header')
+      );
+
+      // Nested elements inside the App
+      ReactDOM.render(
+        <App1>
+          <h1>Employment History</h1>
 
         <h3>Widgets-R-Us</h3>
         <ul>
           <li>Job Title: Floor Supervisor</li>
           <li>Duration of Employment: March 2015 - Present</li>
-          <li>Job Description/Duties:<br>&nbsp;&nbsp;&nbsp;Supervised a team of 6 employees who were responsible for creating widgets.</li>
+          <li>Job Description/Duties:<br/>&nbsp;&nbsp;&nbsp;Supervised a team of 6 employees who were responsible for creating widgets.</li>
         </ul>
 
        <h3>Dominos Pizza</h3>
         <ul>
           <li>Job Title: Pizza Delivery Driver</li>
           <li>Duration of Employment: Apr 2014 - Feb 2015</li>
-          <li>Job Description/Duties:<br>&nbsp;&nbsp;&nbsp;Transported pizzas by car to customers who placed orders online.</li>
+          <li>Job Description/Duties:<br/>&nbsp;&nbsp;&nbsp;Transported pizzas by car to customers who placed orders online.</li>
         </ul>
+        </App1>,
+        document.querySelector('#emp_hist')
+      );
+
+
+    </script>
+
+    <main>
+      <h1>Introduction</h1>
+      <p>Seeking employment with a large software company.  I have an extensive background that I believe will be of great benefit to any employer.</p>
+ 
+      <section id='emp_hist'>
       </section>
 
-      <section>
+      <section id='education'>
         <h1>Education</h1>
 
         <h3>Bradbury College</h3>
@@ -47,13 +98,14 @@
         </ul>
       </section>
 
-     <address>
+     <address id='contact info'>
         <h2>Contact Info</h2>
         <p>Sally Marie Student</p>
         <img src="https://ia.media-imdb.com/images/M/MV5BMTY5NzE3NzU3MF5BMl5BanBnXkFtZTgwMjg0NTQ5MDE@._V1_UX214_CR0,0,214,317_AL_.jpg" alt="Sally Student Resume Photo">
       </address>
 
    </main>
+
    <footer>
       <p>You may reach me by one of the following:</p>
       <ul>
