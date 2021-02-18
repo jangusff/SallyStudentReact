@@ -24,11 +24,14 @@
 
     <script type="text/babel">
 
+      const displayName = 'Sidney Jugless';
+
       // App Component
       function App(props) {
         console.log(props);
         return (
           <header className={props.className}>
+            {props.jjj}
             {props.children}
           </header>
         );
@@ -43,12 +46,13 @@
         );
       }
 
+      //className='resume-header'
 
       // Nested elements inside the App
       ReactDOM.render(
-        <App className='resume-header'>
+        <App className='resume-header' jjj='xyz'>
           <div>
-          <h1>Sally Marie Student</h1>
+          <h1>{displayName}</h1>
           </div>
         </App>,
         document.querySelector('header')
